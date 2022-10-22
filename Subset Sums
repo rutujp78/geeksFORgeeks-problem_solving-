@@ -1,0 +1,24 @@
+class Solution
+{
+public:
+
+    void findSubSetSum(int indx, vector<int>&arr,int N, vector<int>&subSetSum, int sum) {
+        if(indx==N) {
+            subSetSum.push_back(sum);
+            return;
+        }
+        //pick the element
+        findSubSetSum(indx+1,arr,N,subSetSum,sum+arr[indx]);
+        //do not pick the element
+        findSubSetSum(indx+1,arr,N,subSetSum,sum);
+    }
+
+    vector<int> subsetSums(vector<int> arr, int N)
+    {
+        // Write Your Code here
+        vector<int>subSetSum;
+        findSubSetSum(0,arr,N,subSetSum,0);
+        // sort(subSetSum.begin(),subSetSum.end());
+        return subSetSum;
+    }
+};
