@@ -1,0 +1,17 @@
+class Solution {
+  public:
+    long long reversedBits(long long X) {
+        // code here
+        long long ans = 0;
+        vector<int>v(32,0);int x = 31;
+        while(X) {
+            int rem = X%2;
+            v[x--] = rem;
+            X/=2;
+        }
+        for(int i=0;i<32;i++) {
+            ans+=pow(2,i)*v[i];
+        }
+        return ans;
+    }
+};
