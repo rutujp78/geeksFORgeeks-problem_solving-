@@ -1,0 +1,32 @@
+class Solution
+{
+    
+    void solve(int indX, string S, vector<string>&ans) {
+        if(indX==S.size()) {
+            ans.push_back(S);
+            return;
+        }
+        
+        for(int i=indX;i<S.size();i++) {
+            if(S[i]==S[i+1] && i+1<S.size()) continue; //To remove duplicate permutations
+            swap(S[i], S[indX]);
+            solve(indX+1,S,ans);
+            swap(S[i], S[indX]);
+        }
+    }
+    
+	public:
+		vector<string>find_permutation(string S)
+		{
+		    vector<string> ans;
+		    // Code here there
+		    solve(0, S, ans);
+		    sort(ans.begin(),ans.end());
+		    //To remove duplicate permuations
+		  //  ans.erase(unique(ans.begin(), ans.end()), ans.end());
+		  //using set to remove dupicates
+		  //set<string> s(ans.begin(), ans.end());
+		  //ans.assign(s.begin(),s.end());
+		    return ans;
+		}
+};
