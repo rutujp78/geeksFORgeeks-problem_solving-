@@ -1,0 +1,12 @@
+class Solution {
+  public:
+    void printSquare(int n) {
+        // code here
+        for(int i=1;i<2*n;i++) {
+            for(int j=1;j<2*n;j++) {
+                cout << max(max(i,2*n-i),max(j,2*n-j))-n+1 << " ";
+            }
+            cout << endl;
+        }
+    }
+};
