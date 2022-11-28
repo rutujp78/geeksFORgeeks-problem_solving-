@@ -1,0 +1,22 @@
+//User function Template for Java
+class Solution{
+    
+    static long findFacto(long num) {
+        if(num <= 1) return 1;
+        return (num*findFacto(num-1));
+    }
+    
+    static ArrayList<Long> factorialNumbers(long N){
+        // code here
+        ArrayList<Long> ans = new ArrayList<Long>();
+        long factorial = 0, i = 1;
+        while(factorial<=N) {
+            factorial = findFacto(i);
+            if(factorial<=N) {
+                ans.add(factorial);
+            }
+            i++;
+        }
+        return ans;
+    }
+}
