@@ -1,0 +1,21 @@
+//User function template for C++
+class Solution{
+public:	
+	
+// 	int isPalin(int i, int j, string S) {
+// 	    if(i>=j) return 1;
+// 	    return S[i]==S[j]? isPalin(i+1,j-1,S) : 0;
+// 	}
+	
+	int isPalindrome(string S)
+	{
+	    // Your code goes here
+	    // recursive method
+	   // return isPalin(0,S.length()-1,S);
+	   for(int i=0;i<S.length()/2;i++) {
+	       if(S[i]!=S[S.length()-i-1]) return 0;
+	   }
+	   return 1;
+	}
+
+};
