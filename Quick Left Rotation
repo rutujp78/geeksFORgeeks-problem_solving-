@@ -1,0 +1,31 @@
+class Solution{
+	public:
+	void leftRotate(int arr[], int k, int n) 
+	{ 
+	   // Your code goes here
+	   k=k%n;
+	   //reverse(0,k);
+	   int i=0,j=k-1;
+	   while(i<j) {
+	       swap(arr[i],arr[j]);
+            i++;
+            j--;
+	   }
+	   
+	   //reverse(k,n);
+	   i=k,j=n-1;
+	   while(i<j) {
+	       swap(arr[i],arr[j]);
+            i++;
+            j--;
+	   }
+	   
+	   //reverse(0,n);
+	   i=0,j=n-1;
+	   while(i<j) {
+	       swap(arr[i],arr[j]);
+            i++;
+            j--;
+	   }
+	} 
+};
