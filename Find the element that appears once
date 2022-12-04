@@ -1,0 +1,28 @@
+//User function template for C++
+class Solution{
+public:	
+	int search(int A[], int N){
+	    //code
+	    //Brute Force O(N),O(N)
+	   // unordered_map<int,int> m;
+	   // for(int i=0;i<N;i++) {
+	   //     m[A[i]]++;
+	   // }
+	   // for(auto i:m) {
+	   //     if(i.second==1) return i.first;
+	   // }
+	    
+	    //Optimized :) O(log(N)),O(1)
+	    for(int i=0;i<N;i+=2) {
+	        if(A[i]!=A[i+1]) return A[i];
+	    }
+	    
+	    // Using XOR operation
+	   // int x=0;
+	   // for(int i=0;i<N;i++) {
+	   //     x=x^A[i];
+	   // }
+	   // return x;
+	    
+	}
+};
