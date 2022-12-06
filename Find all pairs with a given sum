@@ -1,0 +1,41 @@
+class Solution{
+    public:
+    vector<pair<int,int>> allPairs(int A[], int B[], int N, int M, int X)
+    {
+        // Your code goes here
+        
+        //Method 1 - Binary Search
+        vector<pair<int,int>> ans;
+        sort(A,A+N);
+        sort(B,B+M);
+        for(int i=0;i<N;i++) {
+            int start=0, end = M-1;
+            while(start<=end) {
+                int mid=(start+end)/2;
+                if(A[i]+B[mid]==X) {
+                    ans.push_back(make_pair(A[i],B[mid]));
+                    // cout << A[i] << B[mid] << endl;
+                    break;
+                }
+                else if(A[i]+B[mid]<X) start=mid+1;
+                else if(A[i]+B[mid]>X) end=mid-1;
+            }
+        }
+        return ans;
+        
+        //Method 2 - using unordered_map
+        // vector<pair<int,int>> ans;
+        // unordered_set<int>st;
+        // for(int i=0;i<N;i++) {
+        //     set.insert(A[i]);
+        // }
+        // for(int i=0;i<M;i++) {
+        //     if(st.find(X-B[i])!=st.end()) {
+        //         ans.push_back({X-B[i],B[i]});
+        //     }
+        // }
+        // sort(ans.begin(), ans.end());
+        // return ans;
+        
+    }
+};
