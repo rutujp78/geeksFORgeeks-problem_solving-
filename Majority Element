@@ -1,0 +1,35 @@
+//User function template for C++
+
+class Solution{
+  public:
+     // Function to find majority element in the array
+    // a: input array
+    // size: size of input array
+    int majorityElement(int a[], int size)
+    {
+        // your code here
+        // Method 1: O(NlogN), O(N)
+        // unordered_map<int,int> m;
+        // for(int i=0;i<size;i++) {
+        //     m[a[i]]++;
+        //     if(m[a[i]]>size/2) {
+        //         return a[i];
+        //     }
+        // }
+        // return -1;
+        
+        // Method 2: Moore's voting algorithm O(N), O(1)
+        int count = 0, candidate = 0;
+        for(int i=0;i<size;i++) {
+            if(count == 0) candidate = a[i];
+            if(a[i]==candidate) count+=1;
+            else count-=1;
+        }
+        count = 0;
+        for(int i=0;i<size;i++) {
+            if(a[i]==candidate) count+=1;
+        }
+        if(count>size/2) return candidate;
+        else return -1;
+    }
+};
